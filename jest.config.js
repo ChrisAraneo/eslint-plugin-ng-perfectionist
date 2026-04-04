@@ -1,15 +1,7 @@
 /** @type {import('jest').Config} */
 
 const config = {
-  collectCoverageFrom: [
-    'src/**/*.ts',
-    'index.ts',
-    '!src/**/*.d.ts',
-    '!src/angular/**',
-    '!src/json/**',
-    '!src/nx/**',
-    '!src/typescript/**',
-  ],
+  collectCoverageFrom: ['src/**/*.ts', 'index.ts', '!src/**/*.d.ts'],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
   extensionsToTreatAsEsm: ['.ts'],
@@ -45,7 +37,7 @@ const config = {
       },
     ],
   },
-  transformIgnorePatterns: ['node_modules/(?!(lodash-es)/)'],
+  transformIgnorePatterns: ['node_modules/'],
 };
 
 export default config;

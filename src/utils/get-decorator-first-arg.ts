@@ -3,9 +3,9 @@ import { match, P } from 'ts-pattern';
 import { get } from 'lodash-es';
 
 export const getDecoratorFirstArg = (
-  node: TSESTree.Decorator,
+  node: TSESTree.Decorator | undefined,
 ): TSESTree.ObjectExpression | undefined =>
-  match(node.expression)
+  match(node?.expression)
     .with(
       {
         type: AST_NODE_TYPES.CallExpression,

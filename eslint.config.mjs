@@ -1,37 +1,13 @@
-import eslint from '@eslint/js';
-import perfectionist from 'eslint-plugin-perfectionist';
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
-import tseslint from 'typescript-eslint';
+import { configBuilder } from '@chris.araneo/eslint-config';
 
-export default [
-  eslint.configs.recommended,
-  ...tseslint.configs.strict,
-  ...tseslint.configs.stylistic,
-  {
-    plugins: {
-      perfectionist,
-    },
-    rules: {
-      'perfectionist/sort-imports': 'off',
-      'perfectionist/sort-objects': 'error',
-    },
-  },
-  {
-    plugins: {
-      'simple-import-sort': simpleImportSort,
-    },
-    rules: {
-      'simple-import-sort/exports': 'error',
-      'simple-import-sort/imports': 'error',
-    },
-  },
-  {
-    rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-non-null-assertion': 'off',
-    },
-  },
-  {
-    ignores: ['dist/', 'package-lock.json'],
-  },
-];
+export default configBuilder().addTypeScriptConfig({
+  sources: ["^(?!.*\.spec\.ts$).*\.ts$"],
+  tsconfigRootDir: import.meta.dirname,
+}).addJsonConfig({
+  jsons: ["**/*.json"],
+}).addTypeScriptTestsConfig({
+  sources: ["src/**/*.spec.ts"],
+  tsconfigRootDir: import.meta.dirname,
+}).addIgnored({
+  ignored: ["package.json", "package-lock.json"],
+}).build();

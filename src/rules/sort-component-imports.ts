@@ -18,8 +18,7 @@ export const sortComponentImports = createRule<[], MessageIds>({
     fixable: 'code',
     schema: [],
     messages: {
-      unsorted:
-        'Angular @Component imports should be sorted alphabetically.',
+      unsorted: 'Angular @Component imports should be sorted alphabetically.',
     },
   },
   defaultOptions: [],

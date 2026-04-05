@@ -9,86 +9,83 @@ const ruleTester = new RuleTester({
   },
 });
 
-ruleTester.run(
-  'sort-component-imports',
-  sortComponentImports as any,
-  {
-    valid: [
-      {
-        code: `
+ruleTester.run('sort-component-imports', sortComponentImports as any, {
+  valid: [
+    {
+      code: `
           @Component({
             imports: [Alpha, Beta, Gamma]
           })
           class MyComponent {}
         `,
-      },
-      {
-        code: `
+    },
+    {
+      code: `
           @Component({
             imports: [Alpha]
           })
           class MyComponent {}
         `,
-      },
-      {
-        code: `
+    },
+    {
+      code: `
           @Component({
             imports: []
           })
           class MyComponent {}
         `,
-      },
-      {
-        code: `
+    },
+    {
+      code: `
           @Component({
             selector: 'app-test',
             template: '<div></div>',
           })
           class MyComponent {}
         `,
-      },
-      {
-        code: `
+    },
+    {
+      code: `
           @Directive({
             imports: [Gamma, Beta, Alpha]
           })
           class MyDirective {}
         `,
-      },
-    ],
-    invalid: [
-      {
-        code: `
+    },
+  ],
+  invalid: [
+    {
+      code: `
           @Component({
             imports: [Gamma, Alpha, Beta]
           })
           class MyComponent {}
         `,
-        errors: [{ messageId: 'unsorted' }],
-        output: `
+      errors: [{ messageId: 'unsorted' }],
+      output: `
           @Component({
             imports: [Alpha, Beta, Gamma]
           })
           class MyComponent {}
         `,
-      },
-      {
-        code: `
+    },
+    {
+      code: `
           @Component({
             imports: [B, A]
           })
           class MyComponent {}
         `,
-        errors: [{ messageId: 'unsorted' }],
-        output: `
+      errors: [{ messageId: 'unsorted' }],
+      output: `
           @Component({
             imports: [A, B]
           })
           class MyComponent {}
         `,
-      },
-      {
-        code: `
+    },
+    {
+      code: `
           @Component({
             imports: [
               ZModule,
@@ -98,8 +95,8 @@ ruleTester.run(
           })
           class MyComponent {}
         `,
-        errors: [{ messageId: 'unsorted' }],
-        output: `
+      errors: [{ messageId: 'unsorted' }],
+      output: `
           @Component({
             imports: [
               AModule,
@@ -109,7 +106,6 @@ ruleTester.run(
           })
           class MyComponent {}
         `,
-      },
-    ],
-  },
-);
+    },
+  ],
+});

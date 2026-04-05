@@ -3,8 +3,7 @@ import type { ESLint, Rule } from 'eslint';
 import { sortComponentImports } from './rules/sort-component-imports.js';
 
 const rules: Record<string, Rule.RuleModule> = {
-  'sort-component-imports':
-    sortComponentImports as unknown as Rule.RuleModule,
+  'sort-component-imports': sortComponentImports as unknown as Rule.RuleModule,
 };
 
 const plugin: ESLint.Plugin = {

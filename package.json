@@ -1,6 +1,6 @@
 {
   "name": "@chris.araneo/eslint-plugin-ng-perfectionist",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/ChrisAraneo/ng-perfectionist",
@@ -35,8 +35,6 @@
     "@jest/globals": "^30.2.0",
     "@types/jest": "^30.0.0",
     "eslint": "^9.39.3",
-    "eslint-plugin-perfectionist": "^5.6.0",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
     "jest": "^30.2.0",
     "jiti": "^2.6.1",
     "prettier": "^3.8.1",

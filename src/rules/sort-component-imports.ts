@@ -12,6 +12,19 @@ export const sortComponentImports = ESLintUtils.RuleCreator(
   (name) =>
     `https://github.com/ChrisAraneo/eslint-plugin-ng-perfectionist/blob/master/docs/rules/${name}.md`,
 )<[], 'unsorted'>({
+  name: 'sort-component-imports',
+  meta: {
+    docs: {
+      description:
+        'Enforce alphabetical sorting of Angular @Component imports array.',
+    },
+    fixable: 'code',
+    messages: {
+      unsorted: 'Angular @Component imports should be sorted alphabetically.',
+    },
+    schema: [],
+    type: 'suggestion',
+  },
   create: (context) => ({
     Decorator: (node: TSESTree.Decorator) => {
       if (!isComponentDecorator(node)) {
@@ -44,17 +57,4 @@ export const sortComponentImports = ESLintUtils.RuleCreator(
     },
   }),
   defaultOptions: [],
-  meta: {
-    docs: {
-      description:
-        'Enforce alphabetical sorting of Angular @Component imports array.',
-    },
-    fixable: 'code',
-    messages: {
-      unsorted: 'Angular @Component imports should be sorted alphabetically.',
-    },
-    schema: [],
-    type: 'suggestion',
-  },
-  name: 'sort-component-imports',
 });

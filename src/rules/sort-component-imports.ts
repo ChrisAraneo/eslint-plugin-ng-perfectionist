@@ -1,88 +1,59 @@
 import { ESLintUtils, type TSESTree } from '@typescript-eslint/utils';
+import { chain, isEqual } from 'lodash-es';
 
-const createRule = ESLintUtils.RuleCreator(
+import { isComponentDecorator } from '../utils/is-component-decorator.js';
+import { getImportsArray } from '../utils/get-imports-array.js';
+import { getNonNullElements } from '../utils/get-non-null-elements.js';
+import { getElementTexts } from '../utils/get-element-texts.js';
+import { getSortedTexts } from '../utils/get-sorted-texts.js';
+import { reportUnsorted } from '../utils/report-unsorted.js';
+
+export const sortComponentImports = ESLintUtils.RuleCreator(
   (name) =>
     `https://github.com/ChrisAraneo/eslint-plugin-ng-perfectionist/blob/master/docs/rules/${name}.md`,
-);
+)<[], 'unsorted'>({
+  create: (context) => ({
+    Decorator: (node: TSESTree.Decorator) => {
+      if (!isComponentDecorator(node)) {
+        return;
+      }
 
-type MessageIds = 'unsorted';
+      chain(node)
+        .thru(getImportsArray)
+        .thru(getNonNullElements)
+        .thru((elements) => {
+          if (!elements?.length) {
+            return;
+          }
 
-export const sortComponentImports = createRule<[], MessageIds>({
-  name: 'sort-component-imports',
+          const arrayNode = getImportsArray(node);
+
+          if (!arrayNode) {
+            return;
+          }
+
+          const texts = getElementTexts(elements, context.sourceCode);
+          const sorted = getSortedTexts(texts);
+
+          if (!isEqual(texts, sorted)) {
+            reportUnsorted(context, arrayNode, elements, sorted);
+          }
+        })
+        .value();
+    },
+  }),
+  defaultOptions: [],
   meta: {
-    type: 'suggestion',
     docs: {
       description:
         'Enforce alphabetical sorting of Angular @Component imports array.',
     },
     fixable: 'code',
-    schema: [],
     messages: {
       unsorted: 'Angular @Component imports should be sorted alphabetically.',
     },
+    schema: [],
+    type: 'suggestion',
   },
-  defaultOptions: [],
-  create(context) {
-    return {
-      Decorator(node: TSESTree.Decorator) {
-        if (
-          node.expression.type !== 'CallExpression' ||
-          node.expression.callee.type !== 'Identifier' ||
-          node.expression.callee.name !== 'Component'
-        ) {
-          return;
-        }
-
-        const arg = node.expression.arguments[0];
-        if (!arg || arg.type !== 'ObjectExpression') {
-          return;
-        }
-
-        const importsProp = arg.properties.find(
-          (p): p is TSESTree.Property =>
-            p.type === 'Property' &&
-            p.key.type === 'Identifier' &&
-            p.key.name === 'imports',
-        );
-
-        if (!importsProp || importsProp.value.type !== 'ArrayExpression') {
-          return;
-        }
-
-        const elements = importsProp.value.elements;
-        const sourceCode = context.sourceCode;
-        const nonNullElements = elements.filter(
-          (el): el is TSESTree.Expression | TSESTree.SpreadElement =>
-            el !== null,
-        );
-
-        if (nonNullElements.length <= 1) {
-          return;
-        }
-
-        const elementTexts = nonNullElements.map((el) =>
-          sourceCode.getText(el),
-        );
-        const sortedTexts = [...elementTexts].sort((a, b) =>
-          a.localeCompare(b),
-        );
-
-        const isSorted = elementTexts.every(
-          (text, i) => text === sortedTexts[i],
-        );
-
-        if (!isSorted) {
-          context.report({
-            node: importsProp.value,
-            messageId: 'unsorted',
-            fix(fixer) {
-              return nonNullElements.map((el, i) =>
-                fixer.replaceText(el, sortedTexts[i]!),
-              );
-            },
-          });
-        }
-      },
-    };
-  },
+  name: 'sort-component-imports',
 });

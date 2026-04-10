@@ -4,6 +4,7 @@ import { chain } from 'lodash-es';
 import { checkAndReportIfUnsorted } from '../reporters/check-and-report-if-unsorted.js';
 import { getImportsArray } from '../array-extractors/get-imports-array.js';
 import { isDirectiveDecorator } from '../decorator-guards/is-directive-decorator.js';
+import { withContext } from '../transforms/with-context.js';
 
 export const sortDirectiveImports = ESLintUtils.RuleCreator(
   (name) =>
@@ -27,7 +28,7 @@ export const sortDirectiveImports = ESLintUtils.RuleCreator(
       chain(node)
         .thru(isDirectiveDecorator)
         .thru(getImportsArray)
-        .thru((array) => ({ context, array }))
+        .thru(withContext(context))
         .thru(checkAndReportIfUnsorted)
         .value(),
   }),

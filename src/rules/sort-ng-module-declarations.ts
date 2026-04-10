@@ -4,6 +4,7 @@ import { chain } from 'lodash-es';
 import { checkAndReportIfUnsorted } from '../reporters/check-and-report-if-unsorted.js';
 import { getDeclarationsArray } from '../array-extractors/get-declarations-array.js';
 import { isNgModuleDecorator } from '../decorator-guards/is-ng-module-decorator.js';
+import { withContext } from '../transforms/with-context.js';
 
 export const sortNgModuleDeclarations = ESLintUtils.RuleCreator(
   (name) =>
@@ -28,7 +29,7 @@ export const sortNgModuleDeclarations = ESLintUtils.RuleCreator(
       chain(node)
         .thru(isNgModuleDecorator)
         .thru(getDeclarationsArray)
-        .thru((array) => ({ context, array }))
+        .thru(withContext(context))
         .thru(checkAndReportIfUnsorted)
         .value(),
   }),

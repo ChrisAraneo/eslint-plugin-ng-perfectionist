@@ -4,6 +4,7 @@ import { chain } from 'lodash-es';
 import { checkAndReportIfUnsorted } from '../reporters/check-and-report-if-unsorted.js';
 import { getImportsArray } from '../array-extractors/get-imports-array.js';
 import { isComponentDecorator } from '../decorator-guards/is-component-decorator.js';
+import { withContext } from '../transforms/with-context.js';
 
 export const sortComponentImports = ESLintUtils.RuleCreator(
   (name) =>
@@ -27,7 +28,7 @@ export const sortComponentImports = ESLintUtils.RuleCreator(
       chain(node)
         .thru(isComponentDecorator)
         .thru(getImportsArray)
-        .thru((array) => ({ context, array }))
+        .thru(withContext(context))
         .thru(checkAndReportIfUnsorted)
         .value(),
   }),

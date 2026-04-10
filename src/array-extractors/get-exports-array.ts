@@ -7,7 +7,7 @@ import { findExportsProperty } from './finders/find-exports-property.js';
 
 export const getExportsArray = (
   node: TSESTree.Decorator | undefined,
-): TSESTree.ArrayExpression | void =>
+): TSESTree.ArrayExpression | undefined =>
   chain(node)
     .thru(getDecoratorFirstArg)
     .thru(findExportsProperty)

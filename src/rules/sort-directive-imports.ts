@@ -23,17 +23,13 @@ export const sortDirectiveImports = ESLintUtils.RuleCreator(
     type: 'suggestion',
   },
   create: (context) => ({
-    Decorator: (node: TSESTree.Decorator) => {
-      if (!isDirectiveDecorator(node)) {
-        return;
-      }
-
+    Decorator: (node: TSESTree.Decorator) =>
       chain(node)
+        .thru(isDirectiveDecorator)
         .thru(getImportsArray)
         .thru((array) => ({ context, array }))
         .thru(checkAndReportIfUnsorted)
-        .value();
-    },
+        .value(),
   }),
   defaultOptions: [],
 });

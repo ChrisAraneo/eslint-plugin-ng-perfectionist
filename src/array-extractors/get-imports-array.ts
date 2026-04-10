@@ -7,7 +7,7 @@ import { findImportsProperty } from './finders/find-imports-property.js';
 
 export const getImportsArray = (
   node: TSESTree.Decorator | undefined,
-): TSESTree.ArrayExpression | void =>
+): TSESTree.ArrayExpression | undefined =>
   chain(node)
     .thru(getDecoratorFirstArg)
     .thru(findImportsProperty)

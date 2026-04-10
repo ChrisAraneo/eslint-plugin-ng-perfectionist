@@ -23,17 +23,13 @@ export const sortPipeImports = ESLintUtils.RuleCreator(
     type: 'suggestion',
   },
   create: (context) => ({
-    Decorator: (node: TSESTree.Decorator) => {
-      if (!isPipeDecorator(node)) {
-        return;
-      }
-
+    Decorator: (node: TSESTree.Decorator) =>
       chain(node)
+        .thru(isPipeDecorator)
         .thru(getImportsArray)
         .thru((array) => ({ context, array }))
         .thru(checkAndReportIfUnsorted)
-        .value();
-    },
+        .value(),
   }),
   defaultOptions: [],
 });

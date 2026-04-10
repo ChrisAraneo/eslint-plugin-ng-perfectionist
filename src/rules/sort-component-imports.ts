@@ -23,17 +23,13 @@ export const sortComponentImports = ESLintUtils.RuleCreator(
     type: 'suggestion',
   },
   create: (context) => ({
-    Decorator: (node: TSESTree.Decorator) => {
-      if (!isComponentDecorator(node)) {
-        return;
-      }
-
+    Decorator: (node: TSESTree.Decorator) =>
       chain(node)
+        .thru(isComponentDecorator)
         .thru(getImportsArray)
         .thru((array) => ({ context, array }))
         .thru(checkAndReportIfUnsorted)
-        .value();
-    },
+        .value(),
   }),
   defaultOptions: [],
 });

@@ -23,17 +23,13 @@ export const sortNgModuleExports = ESLintUtils.RuleCreator(
     type: 'suggestion',
   },
   create: (context) => ({
-    Decorator: (node: TSESTree.Decorator) => {
-      if (!isNgModuleDecorator(node)) {
-        return;
-      }
-
+    Decorator: (node: TSESTree.Decorator) =>
       chain(node)
+        .thru(isNgModuleDecorator)
         .thru(getExportsArray)
         .thru((array) => ({ context, array }))
         .thru(checkAndReportIfUnsorted)
-        .value();
-    },
+        .value(),
   }),
   defaultOptions: [],
 });

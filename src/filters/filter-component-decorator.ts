@@ -1,8 +1,6 @@
 import { AST_NODE_TYPES, type TSESTree } from '@typescript-eslint/utils';
 
-// TODO Rename guards to something else?
-
-export const isComponentDecorator = (
+export const filterComponentDecorator = (
   node: TSESTree.Decorator,
 ): TSESTree.Decorator | undefined =>
   node.expression.type === AST_NODE_TYPES.CallExpression &&

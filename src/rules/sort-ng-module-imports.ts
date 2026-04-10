@@ -3,7 +3,7 @@ import { chain } from 'lodash-es';
 
 import { checkAndReportIfUnsorted } from '../reporters/check-and-report-if-unsorted.js';
 import { getImportsArray } from '../array-extractors/get-imports-array.js';
-import { isNgModuleDecorator } from '../decorator-guards/is-ng-module-decorator.js';
+import { filterNgModuleDecorator } from '../filters/filter-ng-module-decorator.js';
 import { withContext } from '../transforms/with-context.js';
 
 export const sortNgModuleImports = ESLintUtils.RuleCreator(
@@ -26,7 +26,7 @@ export const sortNgModuleImports = ESLintUtils.RuleCreator(
   create: (context) => ({
     Decorator: (node: TSESTree.Decorator) =>
       chain(node)
-        .thru(isNgModuleDecorator)
+        .thru(filterNgModuleDecorator)
         .thru(getImportsArray)
         .thru(withContext(context))
         .thru(checkAndReportIfUnsorted)

@@ -1,6 +1,6 @@
 import { AST_NODE_TYPES, type TSESTree } from '@typescript-eslint/utils';
 
-export const isDirectiveDecorator = (
+export const filterDirectiveDecorator = (
   node: TSESTree.Decorator,
 ): TSESTree.Decorator | undefined =>
   node.expression.type === AST_NODE_TYPES.CallExpression &&

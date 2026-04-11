@@ -1,5 +1,6 @@
+import type { RuleContext } from '@typescript-eslint/utils/ts-eslint';
 import { type TSESTree } from '@typescript-eslint/utils';
 
 export const withContext =
-  <TContext>(context: TContext) =>
-  (array: TSESTree.ArrayExpression) => ({ context, array });
+  (context: RuleContext<'unsorted', []>) =>
+  (array: TSESTree.ArrayExpression | undefined) => ({ array, context });

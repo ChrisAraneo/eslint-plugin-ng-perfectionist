@@ -10,7 +10,9 @@ export const reportUnsorted = (
 ): void => {
   context.report({
     fix: (fixer) =>
-      elements.map((el, i) => fixer.replaceText(el, sortedTexts[i]!)),
+      elements.map((element, index) =>
+        fixer.replaceText(element, sortedTexts[index]!),
+      ),
     messageId: 'unsorted',
     node: array,
   });

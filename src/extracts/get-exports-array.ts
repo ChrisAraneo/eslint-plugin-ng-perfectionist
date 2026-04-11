@@ -1,15 +1,15 @@
 import { type TSESTree } from '@typescript-eslint/utils';
 import { chain } from 'lodash-es';
 
-import { getDecoratorFirstArg } from '../transforms/get-decorator-first-arg.js';
+import { getDecoratorFirstArg } from './transforms/get-decorator-first-arg.js';
 import { toArrayExpression } from './transforms/to-array-expression.js';
-import { findDeclarationsProperty } from './finders/find-declarations-property.js';
+import { findExportsProperty } from './finds/find-exports-property.js';
 
-export const getDeclarationsArray = (
+export const getExportsArray = (
   node: TSESTree.Decorator | undefined,
 ): TSESTree.ArrayExpression | undefined =>
   chain(node)
     .thru(getDecoratorFirstArg)
-    .thru(findDeclarationsProperty)
+    .thru(findExportsProperty)
     .thru(toArrayExpression)
     .value();

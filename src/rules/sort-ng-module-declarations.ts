@@ -1,8 +1,9 @@
 import { ESLintUtils, type TSESTree } from '@typescript-eslint/utils';
 import { chain } from 'lodash-es';
 
-import { checkAndReportIfUnsorted } from '../reporters/check-and-report-if-unsorted.js';
-import { getDeclarationsArray } from '../array-extractors/get-declarations-array.js';
+import { checkIfUnsorted } from '../checks/check-if-unsorted.js';
+import { reportUnsorted } from '../reports/report-unsorted.js';
+import { getDeclarationsArray } from '../extracts/get-declarations-array.js';
 import { filterNgModuleDecorator } from '../filters/filter-ng-module-decorator.js';
 import { withContext } from '../transforms/with-context.js';
 
@@ -30,7 +31,17 @@ export const sortNgModuleDeclarations = ESLintUtils.RuleCreator(
         .thru(filterNgModuleDecorator)
         .thru(getDeclarationsArray)
         .thru(withContext(context))
-        .thru(checkAndReportIfUnsorted)
+        .thru(checkIfUnsorted)
+        .thru(
+          (result) =>
+            result &&
+            reportUnsorted(
+              result.context,
+              result.array,
+              result.elements,
+              result.sorted,
+            ),
+        )
         .value(),
   }),
   defaultOptions: [],

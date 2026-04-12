@@ -40,7 +40,7 @@ No options available. This rule always enforces alphabetical sorting.
 
 ```ts
 @NgModule({
-  exports: [Cherry, Apple, Banana]
+  exports: [Cherry, Apple, Banana],
 })
 class MyModule {}
 ```
@@ -49,7 +49,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  exports: [Apple, Banana, Cherry]
+  exports: [Apple, Banana, Cherry],
 })
 class MyModule {}
 ```
@@ -64,7 +64,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  exports: [B, A]
+  exports: [B, A],
 })
 class MyModule {}
 ```
@@ -73,7 +73,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  exports: [A, B]
+  exports: [A, B],
 })
 class MyModule {}
 ```
@@ -88,11 +88,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  exports: [
-    ZModule,
-    AModule,
-    MModule,
-  ]
+  exports: [ZModule, AModule, MModule],
 })
 class MyModule {}
 ```
@@ -101,11 +97,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  exports: [
-    AModule,
-    MModule,
-    ZModule,
-  ]
+  exports: [AModule, MModule, ZModule],
 })
 class MyModule {}
 ```
@@ -139,7 +131,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  exports: [Apple, Banana, Cherry]
+  exports: [Apple, Banana, Cherry],
 })
 class MyModule {}
 ```
@@ -154,7 +146,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  exports: [Apple]
+  exports: [Apple],
 })
 class MyModule {}
 ```
@@ -169,7 +161,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  exports: []
+  exports: [],
 })
 class MyModule {}
 ```

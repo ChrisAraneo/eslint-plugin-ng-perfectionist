@@ -40,7 +40,7 @@ No options available. This rule always enforces alphabetical sorting.
 
 ```ts
 @NgModule({
-  declarations: [Cherry, Apple, Banana]
+  declarations: [Cherry, Apple, Banana],
 })
 class MyModule {}
 ```
@@ -49,7 +49,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  declarations: [Apple, Banana, Cherry]
+  declarations: [Apple, Banana, Cherry],
 })
 class MyModule {}
 ```
@@ -64,7 +64,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  declarations: [B, A]
+  declarations: [B, A],
 })
 class MyModule {}
 ```
@@ -73,7 +73,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  declarations: [A, B]
+  declarations: [A, B],
 })
 class MyModule {}
 ```
@@ -88,11 +88,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  declarations: [
-    ZComponent,
-    AComponent,
-    MComponent,
-  ]
+  declarations: [ZComponent, AComponent, MComponent],
 })
 class MyModule {}
 ```
@@ -101,11 +97,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  declarations: [
-    AComponent,
-    MComponent,
-    ZComponent,
-  ]
+  declarations: [AComponent, MComponent, ZComponent],
 })
 class MyModule {}
 ```
@@ -139,7 +131,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  declarations: [Apple, Banana, Cherry]
+  declarations: [Apple, Banana, Cherry],
 })
 class MyModule {}
 ```
@@ -154,7 +146,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  declarations: [Apple]
+  declarations: [Apple],
 })
 class MyModule {}
 ```
@@ -169,7 +161,7 @@ class MyModule {}
 
 ```ts
 @NgModule({
-  declarations: []
+  declarations: [],
 })
 class MyModule {}
 ```

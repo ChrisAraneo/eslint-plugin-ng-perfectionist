@@ -40,7 +40,7 @@ No options available. This rule always enforces alphabetical sorting.
 
 ```ts
 @Component({
-  styleUrls: ['./c.component.scss', './a.component.scss', './b.component.scss']
+  styleUrls: ['./c.component.scss', './a.component.scss', './b.component.scss'],
 })
 class MyComponent {}
 ```
@@ -49,7 +49,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  styleUrls: ['./a.component.scss', './b.component.scss', './c.component.scss']
+  styleUrls: ['./a.component.scss', './b.component.scss', './c.component.scss'],
 })
 class MyComponent {}
 ```
@@ -64,7 +64,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  styleUrls: ['./b.component.scss', './a.component.scss']
+  styleUrls: ['./b.component.scss', './a.component.scss'],
 })
 class MyComponent {}
 ```
@@ -73,7 +73,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  styleUrls: ['./a.component.scss', './b.component.scss']
+  styleUrls: ['./a.component.scss', './b.component.scss'],
 })
 class MyComponent {}
 ```
@@ -88,11 +88,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  styleUrls: [
-    './z.component.scss',
-    './a.component.scss',
-    './m.component.scss',
-  ]
+  styleUrls: ['./z.component.scss', './a.component.scss', './m.component.scss'],
 })
 class MyComponent {}
 ```
@@ -101,11 +97,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  styleUrls: [
-    './a.component.scss',
-    './m.component.scss',
-    './z.component.scss',
-  ]
+  styleUrls: ['./a.component.scss', './m.component.scss', './z.component.scss'],
 })
 class MyComponent {}
 ```
@@ -139,7 +131,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  styleUrls: ['./a.component.scss', './b.component.scss', './c.component.scss']
+  styleUrls: ['./a.component.scss', './b.component.scss', './c.component.scss'],
 })
 class MyComponent {}
 ```
@@ -154,7 +146,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  styleUrls: ['./a.component.scss']
+  styleUrls: ['./a.component.scss'],
 })
 class MyComponent {}
 ```
@@ -169,7 +161,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  styleUrls: []
+  styleUrls: [],
 })
 class MyComponent {}
 ```

@@ -40,7 +40,7 @@ No options available. This rule always enforces alphabetical sorting.
 
 ```ts
 @Component({
-  imports: [Cherry, Apple, Banana]
+  imports: [Cherry, Apple, Banana],
 })
 class MyComponent {}
 ```
@@ -49,7 +49,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  imports: [Apple, Banana, Cherry]
+  imports: [Apple, Banana, Cherry],
 })
 class MyComponent {}
 ```
@@ -64,7 +64,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  imports: [B, A]
+  imports: [B, A],
 })
 class MyComponent {}
 ```
@@ -73,7 +73,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  imports: [A, B]
+  imports: [A, B],
 })
 class MyComponent {}
 ```
@@ -88,11 +88,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  imports: [
-    ZModule,
-    AModule,
-    MModule,
-  ]
+  imports: [ZModule, AModule, MModule],
 })
 class MyComponent {}
 ```
@@ -101,11 +97,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  imports: [
-    AModule,
-    MModule,
-    ZModule,
-  ]
+  imports: [AModule, MModule, ZModule],
 })
 class MyComponent {}
 ```
@@ -139,7 +131,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  imports: [Apple, Banana, Cherry]
+  imports: [Apple, Banana, Cherry],
 })
 class MyComponent {}
 ```
@@ -154,7 +146,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  imports: [Apple]
+  imports: [Apple],
 })
 class MyComponent {}
 ```
@@ -169,7 +161,7 @@ class MyComponent {}
 
 ```ts
 @Component({
-  imports: []
+  imports: [],
 })
 class MyComponent {}
 ```

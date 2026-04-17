@@ -18,8 +18,8 @@ const rules: Record<string, Rule.RuleModule> = {
 
 const plugin: ESLint.Plugin = {
   meta: {
-    name: '@chris.araneo/eslint-plugin-ng-perfectionist',
-    version: '0.1.0',
+    name: '@chris.araneo/ng-perfectionist',
+    version: '0.0.2',
   },
   rules,
 };

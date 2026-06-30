@@ -44,9 +44,9 @@ export default [
 
 ## ⚠️ Use with caution
 
-Changing order of imports can affect the behavior of your application. The order of items in styleUrls (or styles) also matters. Changing the order of items inside the declarations array will not change the behavior of your application. 
+Changing the order of imports can affect the behavior of your application. The order of items in styleUrls (or styles) also matters. Changing the order of items inside the declarations and exports arrays will not alter your application's behavior.
 
-Use this plugin with caution and make sure to test your application after applying the rules. Design your application in a way that the order of imports does not matter.
+Use this plugin with caution, and make sure to test your application after applying the rules. Design your application in such a way that the order of imports does not matter.
 
 Further reading:
 

@@ -49,12 +49,12 @@ Changing the order of imports can affect the behavior of your application. The o
 Use this plugin with caution, and make sure to test your application after applying the rules. Design your application in such a way that the order of imports does not matter.
 
 Further reading:
-
 [https://stackoverflow.com/questions/42144970/why-does-the-order-of-ngmodule-imports-matter](https://stackoverflow.com/questions/42144970/why-does-the-order-of-ngmodule-imports-matter)
 
 ## Rules
 
 🔧 - automatically fixable by the `--fix` CLI option.
+
 ⚠️ - may change the behavior of your application.
 
 | Name                          | Description                                                     | 🔧 | ⚠️ |

@@ -2,6 +2,7 @@
 
 <p align="center">
   <img src="https://avatars.githubusercontent.com/u/139426" alt="Official @angular GitHub user avatar" width="256px" height="256px"/>
+  <img src="https://raw.githubusercontent.com/azat-io/eslint-plugin-perfectionist/main/docs/public/logo.svg" alt="ESlint plugin Perfectionist logo" width="256px" height="256px"/>
   <br>
   <a href="https://github.com/ChrisAraneo/eslint-plugin-ng-perfectionist/blob/master/package.json"><img src="https://img.shields.io/badge/version-v0.0.3-blue" alt="version"></a>
   <a href="https://github.com/ChrisAraneo/eslint-plugin-ng-perfectionist/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="@chris.araneo/eslint-plugin-ng-perfectionist is released under the MIT license."></a>

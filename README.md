@@ -1,7 +1,7 @@
 <h1 align="center">@chris.araneo/eslint-plugin-ng-perfectionist</h1>
 
 <p align="center">
-  <img src="https://avatars.githubusercontent.com/u/139426?s=200&v=4" alt="Official @angular GitHub user avatar" width="256px" height="256px"/>
+  <img src="https://avatars.githubusercontent.com/u/139426" alt="Official @angular GitHub user avatar" width="256px" height="256px"/>
   <br>
   <a href="https://github.com/ChrisAraneo/eslint-plugin-ng-perfectionist/blob/master/package.json"><img src="https://img.shields.io/badge/version-v0.0.3-blue" alt="version"></a>
   <a href="https://github.com/ChrisAraneo/eslint-plugin-ng-perfectionist/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="@chris.araneo/eslint-plugin-ng-perfectionist is released under the MIT license."></a>

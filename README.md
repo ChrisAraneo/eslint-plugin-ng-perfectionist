@@ -1,8 +1,8 @@
 <h1 align="center">@chris.araneo/eslint-plugin-ng-perfectionist</h1>
 
 <p align="center">
-  <img src="https://avatars.githubusercontent.com/u/139426" alt="Official @angular GitHub user avatar" width="256px" height="256px"/>
-  <img src="https://raw.githubusercontent.com/azat-io/eslint-plugin-perfectionist/main/docs/public/logo.svg" alt="ESlint plugin Perfectionist logo" width="256px" height="256px"/>
+  <img src="https://avatars.githubusercontent.com/u/139426" alt="Official @angular GitHub user avatar" width="200px" height="200px"/>
+  <img src="https://raw.githubusercontent.com/azat-io/eslint-plugin-perfectionist/main/docs/public/logo.svg" alt="ESlint plugin Perfectionist logo" width="200px" height="200px"/>
   <br>
   <a href="https://github.com/ChrisAraneo/eslint-plugin-ng-perfectionist/blob/master/package.json"><img src="https://img.shields.io/badge/version-v0.0.3-blue" alt="version"></a>
   <a href="https://github.com/ChrisAraneo/eslint-plugin-ng-perfectionist/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="@chris.araneo/eslint-plugin-ng-perfectionist is released under the MIT license."></a>
@@ -44,21 +44,26 @@ export default [
 
 ## ⚠️ Use with caution
 
-Changing order of imports can affect the behavior of your application. Use this plugin with caution and make sure to test your application after applying the rules.
+Changing order of imports can affect the behavior of your application. The order of items in styleUrls (or styles) also matters. Changing the order of items inside the declarations array will not change the behavior of your application. 
+
+Use this plugin with caution and make sure to test your application after applying the rules. Design your application in a way that the order of imports does not matter.
+
+Further reading:
 
 [https://stackoverflow.com/questions/42144970/why-does-the-order-of-ngmodule-imports-matter](https://stackoverflow.com/questions/42144970/why-does-the-order-of-ngmodule-imports-matter)
 
 ## Rules
 
 🔧 - automatically fixable by the `--fix` CLI option.
+⚠️ - may change the behavior of your application.
 
-| Name                          | Description                                                     | 🔧 |
-| ----------------------------- | --------------------------------------------------------------- | - |
-| `sort-component-imports`      | Enforce alphabetical sorting of `@Component` imports array.     | 🔧 |
-| `sort-component-style-urls`   | Enforce alphabetical sorting of `@Component` styleUrls array.   | 🔧 |
-| `sort-ng-module-declarations` | Enforce alphabetical sorting of `@NgModule` declarations array. | 🔧 |
-| `sort-ng-module-exports`      | Enforce alphabetical sorting of `@NgModule` exports array.      | 🔧 |
-| `sort-ng-module-imports`      | Enforce alphabetical sorting of `@NgModule` imports array.      | 🔧 |
+| Name                          | Description                                                     | 🔧 | ⚠️ |
+| ----------------------------- | --------------------------------------------------------------- | - | - |
+| `sort-component-imports`      | Enforce alphabetical sorting of `@Component` imports array.     | 🔧 | ⚠️ |
+| `sort-component-style-urls`   | Enforce alphabetical sorting of `@Component` styleUrls array.   | 🔧 | ⚠️ |
+| `sort-ng-module-declarations` | Enforce alphabetical sorting of `@NgModule` declarations array. | 🔧 |   |
+| `sort-ng-module-exports`      | Enforce alphabetical sorting of `@NgModule` exports array.      | 🔧 |   |
+| `sort-ng-module-imports`      | Enforce alphabetical sorting of `@NgModule` imports array.      | 🔧 | ⚠️ |
 
 ## License
 

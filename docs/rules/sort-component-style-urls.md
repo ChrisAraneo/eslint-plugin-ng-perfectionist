@@ -9,6 +9,11 @@ Enforce alphabetical sorting of Angular @Component styleUrls array.
 
 <br>
 
+> [!CAUTION]
+> The order of entries in `styleUrls` affects CSS cascade priority. When multiple style files target the same element with equal specificity, the file listed **last** takes precedence. Applying this rule's autofix may change which styles win in such conflicts.
+
+<br>
+
 ## Rule Options
 
 No options available. This rule always enforces alphabetical sorting.

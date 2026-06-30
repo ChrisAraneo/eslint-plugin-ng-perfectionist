@@ -9,6 +9,11 @@ Enforce alphabetical sorting of Angular @Component imports array.
 
 <br>
 
+> [!CAUTION]
+> The order of entries in the `imports` array can affect Angular's dependency resolution. When multiple imported modules declare the same directive or pipe, or provide the same token, Angular uses the **last** one in the array. Applying this rule's autofix may change which module's version is used when such conflicts exist.
+
+<br>
+
 ## Rule Options
 
 No options available. This rule always enforces alphabetical sorting.
